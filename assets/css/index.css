@@ -249,7 +249,15 @@ footer .email {
 
 @media (max-width: 830px) {
     header {
-        padding: 2.8rem 3rem;
+        padding: 0.9rem 3rem;
+    }
+
+    .menu {
+        height: 1.1rem;
+    }
+
+    .hidden-nav a {
+        font-size: 1.5rem;
     }
 
     .hero {
@@ -286,7 +294,15 @@ footer .email {
 
 @media (max-width: 500px) {
     header {
-        padding: 2.8rem 1.8rem;
+        padding: 0.9rem 1.8rem;
+    }
+
+    .menu {
+        height: 1.1rem;
+    }
+
+    .hidden-nav a {
+        font-size: 1.5rem;
     }
 
     .hero {
