@@ -36,6 +36,118 @@ header a {
     display: inherit;
     gap: 1.1rem;
 }
+.nav-links a {
+    transition: color 0.3s ease-in-out;
+}
+
+.menu {
+    width: 1.6rem;
+    height: 1.2rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.menu .line {
+    width: 100%;
+    height: 0.2rem;
+    background-color: #1a1a1a;
+    border-radius: 0.2rem;
+}
+
+.menu:hover .line {
+    transition: background-color 0.2s ease;
+}
+
+.menu .line:nth-child(2) {
+    margin-left: 0.25rem;
+}
+
+.hidden-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    background-color: #ffffff;
+    animation: slide-in 0.5s forwards;
+    z-index: 9999;
+}
+
+.slide-in {
+    animation: slide-in 0.3s forwards;
+}
+
+.slide-out {
+    animation: slide-out 0.3s forwards;
+}
+
+@keyframes slide-in {
+    0% {
+         transform: translateX(-100%);
+    }
+
+    100% {
+         transform: translateX(0);
+    }
+}
+  
+@keyframes slide-out {
+    0% {
+        transform: translateX(0);
+    }
+    
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.exit-button {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+    padding: 1.6rem 1.8rem;
+}
+
+.exit-button img {
+    max-width: 1.3rem;
+    transition: 0.2s ease;
+}
+
+.exit-button img:hover {
+    filter: hue-rotate(240deg);
+}
+
+.hidden-nav .hidden-nav-links {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    transition: color 0.3s ease-in-out;
+    margin-top: -4rem;
+}
+
+.hidden-nav a {
+    text-decoration: none;
+    font-size: 2rem;
+    color: #1a1a1a;
+}
+
+.hidden-nav a:hover {
+    color: #007bff;
+}
+
+.social-icons {
+    display: flex;
+    margin-top: 6rem;
+    gap: 1.5rem;
+}
 
 /* Hero */
 
@@ -48,15 +160,146 @@ header a {
 /* Photos section */
 
 .photos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
 }
 
 .photos img {
-    width: 100%;
-    height: auto;
+    height: 21rem;
+    width: calc(33.1% - 0.5rem);
     border-radius: 0.2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 0.5rem 0;
+}
+
+/* View photo section */
+
+.view-photos {
+    padding: 5.7rem 12rem;
+    font-size: 1.9rem;
+    line-height: 1.2;
+}
+
+.view-photos button {
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    border-bottom: 1px solid #1a1a1a;
+    transition: 0.3s ease-in-out;
+}
+
+/* Footer */
+
+footer {
+    background: #ffffff;
+    display: flex;
+    justify-content: baseline;
+    gap: 15rem;
+    font-size: 1.1rem;
+    padding: 3.8rem 12rem;
+}
+
+footer .footer-contacts {
+    line-height: 3;
+}
+
+footer a {
+    text-decoration: none;
+    color: #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+    transition: 0.3s ease-in-out;
+}
+
+footer .email {
+    border-bottom: 1px solid #1a1a1a;
+}
+
+/* Small screen size responsive */
+
+@media (max-width: 1250px) {
+    header {
+        padding: 2.8rem 5rem;
+    }
+    
+    .hero {
+        text-align: left;
+        font-size: 1.9rem;
+        padding: 5.7rem 5rem;
+    }
+
+    .view-photos {
+        padding: 5.7rem 5rem;
+        font-size: 1.5rem;
+    }
+
+    footer {
+        padding: 3.8rem 5rem;
+    }
+}
+
+@media (max-width: 1140px) {
+    .photos img {
+        width: calc(50% - 0.5rem);
+    }
+}
+
+@media (max-width: 830px) {
+    header {
+        padding: 2.8rem 3rem;
+    }
+
+    .hero {
+        padding: 5.7rem 3rem;
+    }
+
+    .view-photos {
+        padding: 5.7rem 3rem;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+    }
+
+    .photos img {
+        height: auto;
+        width: calc(100% - 0.5rem);
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 3rem;
+        padding: 2rem 3rem;
+    }
+}
+
+@media (max-width: 500px) {
+    header {
+        padding: 2.8rem 1.8rem;
+    }
+
+    .hero {
+        padding: 5.7rem 1.8rem;
+        font-size: 1.7rem;
+    }
+
+    .view-photos {
+        padding: 5.7rem 1.8rem;
+        font-size: 1.2rem;
+    }
+
+    footer {
+        padding: 2rem 1.8rem;
+    }
 }
